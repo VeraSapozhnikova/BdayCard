@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Colorful Birthday Card</title>
+    <style>
+        body {
+            background-color: #f7f7f7;
+            color: #333333;
+            font-family: Arial, sans-serif;
+        }
+        .card {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            animation: scale-in 0.5s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+        h1 {
+            color: #ff5500;
+            text-align: center;
+            animation: rainbow-text 2s infinite;
+        }
+        p {
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 20px;
+            animation: fade-in 1s ease-out;
+        }
+
+        @keyframes scale-in {
+            0% {
+                transform: scale(0);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes rainbow-text {
+            0% {
+                color: #ff5500;
+            }
+            25% {
+                color: #ffbb00;
+            }
+            50% {
+                color: #ffff00;
+            }
+            75% {
+                color: #00ff00;
+            }
+            100% {
+                color: #00ffff;
+            }
+        }
+
+        @keyframes fade-in {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .firework {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #ffdf00;
+            border-radius: 50%;
+            animation: fireworks 2s infinite;
+            box-shadow: 0 0 10px #ffdf00, 0 0 20px #ffdf00, 0 0 30px #ffdf00, 0 0 40px #ffdf00, 0 0 50px #ffdf00;
+        }
+
+        @keyframes fireworks {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(5);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>🎉🎂 Happy Birthday! 🎂🎉</h1>
+        <p>Dear {{ name }},</p>
+        <p>On this joyous day filled with laughter and cheer,<br>
+        I raise a flask to celebrate another fabulous year!<br>
+        As vibrant as a rainbow and bursting with delight,<br>
+        May your birthday shine brilliantly, from morning to night.</p>
+        <!-- Add more colorful and personalized messages here -->
+        <script>
+            function createFirework() {
+                const firework = document.createElement('div');
+                firework.classList.add('firework');
+                firework.style.left = Math.random() * 100 + '%';
+                firework.style.top = Math.random() * 100 + '%';
+                document.body.appendChild(firework);
+                setTimeout(() => {
+                    firework.remove();
+                }, 2000);
+            }
+
+            setInterval(createFirework, 500);
+        </script>
+    </div>
+</body>
+</html>
